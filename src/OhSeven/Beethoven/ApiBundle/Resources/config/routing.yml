@@ -1,0 +1,16 @@
+oh_seven_beethoven_api_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: OhSevenBeethovenApiBundle:Default:index }
+
+oh_seven_beethoven_api_users_all:
+    pattern:  /users
+    defaults: { _controller: OhSevenBeethovenApiBundle:User:all, _format: ~ }
+    requirements:
+        _method: GET
+
+oh_seven_beethoven_api_user_get:
+    pattern:  /users/{id}
+    defaults: { _controller: OhSevenBeethovenApiBundle:User:get, _format: ~ }
+    requirements:
+        _method: GET
+        id: "\d+"
