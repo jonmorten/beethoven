@@ -2,10 +2,10 @@
 
 namespace OhSeven\Beethoven\ApiBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use FOS\RestBundle\Controller\FOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
 
-class UserController extends Controller
+class UserController extends FOSRestController
 {
 
     /**
@@ -16,7 +16,7 @@ class UserController extends Controller
         return array(
             'users' => array(
                 33 => array( 'name' => 'Dummy0' ),
-                44 => array( 'name' => 'Dummy1' )
+                44 => array( 'name' => 'Dummy1' ),
             ),
         );
     }

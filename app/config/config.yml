@@ -64,3 +64,13 @@ swiftmailer:
     username:  %mailer_user%
     password:  %mailer_password%
     spool:     { type: memory }
+
+# Make the FOSRestBundle annotations work
+sensio_framework_extra:
+    view:
+        annotations: false
+    router:
+        annotations: true
+fos_rest:
+    view:
+        view_response_listener: force

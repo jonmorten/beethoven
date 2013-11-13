@@ -1,0 +1,4 @@
+#The view_annotations flag must be false to work with FOSRestBundle
+sensio_framework_extra:
+    view:
+        annotations: false
