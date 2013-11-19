@@ -2,3 +2,16 @@
 sensio_framework_extra:
     view:
         annotations: false
+
+services:
+    ac_api_endpoint:
+        class: OhSeven\Beethoven\ApiBundle\Api\Endpoint
+
+doctrine:
+    orm:
+        default_entity_manager: default
+        entity_managers:
+            default:
+                connection: default
+            beethoven:
+                connection: beethoven
