@@ -4,7 +4,7 @@ sensio_framework_extra:
         annotations: false
 
 services:
-    ac_api_endpoint:
+    api_endpoint:
         class: OhSeven\Beethoven\ApiBundle\Api\Endpoint
 
 doctrine:
@@ -13,5 +13,7 @@ doctrine:
         entity_managers:
             default:
                 connection: default
+            activecollab:
+                connection: activecollab
             beethoven:
                 connection: beethoven

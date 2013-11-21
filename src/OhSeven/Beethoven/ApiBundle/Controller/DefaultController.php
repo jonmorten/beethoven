@@ -2,12 +2,20 @@
 
 namespace OhSeven\Beethoven\ApiBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use FOS\RestBundle\Controller\FOSRestController;
+use FOS\RestBundle\Controller\Annotations as Rest;
 
-class DefaultController extends Controller
+class DefaultController extends FOSRestController
 {
-    public function indexAction()
+
+    /**
+     * @Rest\View
+     */
+    public function indexAction ()
     {
-        return $this->render( 'OhSevenBeethovenApiBundle:Default:index.html.twig' );
+        return array(
+            'ping' => 'pong',
+        );
     }
+
 }

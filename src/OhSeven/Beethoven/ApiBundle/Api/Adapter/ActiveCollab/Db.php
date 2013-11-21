@@ -4,7 +4,6 @@ namespace OhSeven\Beethoven\ApiBundle\Api\Adapter\ActiveCollab;
 
 Class Db
 {
-
 /*
 activecollab.
     acx_categories
@@ -15,5 +14,4 @@ activecollab.
     acx_subtasks
     acx_users
 */
-
 }

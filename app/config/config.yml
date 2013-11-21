@@ -45,7 +45,7 @@ assetic:
 # path:     %database_path%
 doctrine:
     dbal:
-        default_connection: default
+        default_connection: activecollab
         connections:
             default:
                 driver:   %database_driver%
@@ -54,6 +54,14 @@ doctrine:
                 dbname:   %database_name%
                 user:     %database_user%
                 password: %database_password%
+                charset:  UTF8
+            activecollab:
+                driver:   %activecollab.database_driver%
+                host:     %activecollab.database_host%
+                port:     %activecollab.database_port%
+                dbname:   %activecollab.database_name%
+                user:     %activecollab.database_user%
+                password: %activecollab.database_password%
                 charset:  UTF8
             beethoven:
                 driver:   %beethoven.database_driver%

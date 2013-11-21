@@ -13,11 +13,11 @@ class UserController extends FOSRestController
      */
     public function allAction ()
     {
+        $connection = $this->get( 'database_connection' );
+        $users = $connection->fetchAll( "SELECT `id`, `first_name`, `last_name`, `email`, `last_login_on` FROM `acx_users` WHERE `company_id` = '6'" );
+
         return array(
-            'users' => array(
-                33 => array( 'name' => 'Dummy0' ),
-                44 => array( 'name' => 'Dummy1' ),
-            ),
+            'result' => $users,
         );
     }
 
@@ -26,8 +26,11 @@ class UserController extends FOSRestController
      */
     public function getAction ( $id )
     {
+        $connection = $this->get( 'database_connection' );
+        $user = $connection->fetchAll( "SELECT `id`, `first_name`, `last_name`, `email` FROM `acx_users` WHERE `id`='{$id}'" );
+
         return array(
-            'user' => array( 'name' => 'Dummy0' ),
+            'result' => $user,
         );
     }
 

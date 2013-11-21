@@ -1,0 +1,18 @@
+OhSeven\Beethoven\ApiBundle\Entity\Board:
+    type: entity
+    table: null
+    repositoryClass: OhSeven\Beethoven\ApiBundle\Entity\BoardRepository
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        columns:
+            type: object
+        name:
+            type: string
+            length: 255
+        filter:
+            type: object
+    lifecycleCallbacks: {  }
