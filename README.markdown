@@ -10,9 +10,9 @@ Follow Symfony2's [server configuration guide](http://symfony.com/doc/current/co
 
 Install [Composer](http://getcomposer.org) in _/var/www/beethoven_ and run `[sudo] php composer.phar install`.
 
-If you get errors regarding 'icu', install the required libraries with `[sudo] apt-get install php5-intl`. If this does not help, it won't.
+If you get errors regarding 'icu', install the required libraries with `[sudo] apt-get install php5-intl`.
 
-Change the file _/var/www/beethoven/app/config/parameters.yml_ and base it on the following template. Replace the null-values as appropriate.
+Change the file _/var/www/beethoven/app/config/parameters.yml_, base it on the following template. Replace the null-values as appropriate.
 
 	parameters:
 
