@@ -27,7 +27,7 @@ oh_seven_beethoven_api_user_get:
 
 # Category: Project
 
-oh_seven_beethoven_api_project_category_all:
+oh_seven_beethoven_api_category_project_all:
     pattern: /category/project
     defaults:
         _controller: OhSevenBeethovenApiBundle:Category:allProject
@@ -35,7 +35,7 @@ oh_seven_beethoven_api_project_category_all:
     requirements:
         _method: GET
 
-oh_seven_beethoven_api_project_category_get:
+oh_seven_beethoven_api_category_project_get:
     pattern: /category/project/{id}
     defaults:
         _controller: OhSevenBeethovenApiBundle:Category:getProject
@@ -47,7 +47,7 @@ oh_seven_beethoven_api_project_category_get:
 
 # Category: Task
 
-oh_seven_beethoven_api_task_category_all:
+oh_seven_beethoven_api_category_task_all:
     pattern: /category/task
     defaults:
         _controller: OhSevenBeethovenApiBundle:Category:allTask
@@ -55,7 +55,7 @@ oh_seven_beethoven_api_task_category_all:
     requirements:
         _method: GET
 
-oh_seven_beethoven_api_task_category_get:
+oh_seven_beethoven_api_category_task_get:
     pattern: /category/task/{id}
     defaults:
         _controller: OhSevenBeethovenApiBundle:Category:getTask
