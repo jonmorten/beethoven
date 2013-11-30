@@ -3,10 +3,6 @@ sensio_framework_extra:
     view:
         annotations: false
 
-services:
-    api_endpoint:
-        class: OhSeven\Beethoven\ApiBundle\Api\Endpoint
-
 doctrine:
     orm:
         default_entity_manager: default
