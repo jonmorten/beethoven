@@ -56,20 +56,20 @@ doctrine:
                 password: %database_password%
                 charset:  UTF8
             activecollab:
-                driver:   %activecollab.database_driver%
-                host:     %activecollab.database_host%
-                port:     %activecollab.database_port%
-                dbname:   %activecollab.database_name%
-                user:     %activecollab.database_user%
-                password: %activecollab.database_password%
+                driver:   %activecollab_database_driver%
+                host:     %activecollab_database_host%
+                port:     %activecollab_database_port%
+                dbname:   %activecollab_database_name%
+                user:     %activecollab_database_user%
+                password: %activecollab_database_password%
                 charset:  UTF8
             beethoven:
-                driver:   %beethoven.database_driver%
-                host:     %beethoven.database_host%
-                port:     %beethoven.database_port%
-                dbname:   %beethoven.database_name%
-                user:     %beethoven.database_user%
-                password: %beethoven.database_password%
+                driver:   %beethoven_database_driver%
+                host:     %beethoven_database_host%
+                port:     %beethoven_database_port%
+                dbname:   %beethoven_database_name%
+                user:     %beethoven_database_user%
+                password: %beethoven_database_password%
                 charset:  UTF8
 
     orm:
