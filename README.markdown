@@ -13,3 +13,5 @@ Install [Composer](http://getcomposer.org) in _/var/www/beethoven_ and run `[sud
 If you get errors regarding 'icu', install the required libraries with `[sudo] apt-get install php5-intl`.
 
 Make sure the values in _/var/www/beethoven/app/config/parameters.yml_ are correct.
+
+Run `[sudo] php app/console doctrine:schema:create --em=beethoven`.

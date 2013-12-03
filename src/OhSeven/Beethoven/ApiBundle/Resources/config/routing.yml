@@ -103,3 +103,31 @@ oh_seven_beethoven_api_label_task_get:
     requirements:
         _method: GET
         id: "\d+"
+
+
+# Board
+
+oh_seven_beethoven_api_board_all:
+    pattern: /board
+    defaults:
+        _controller: OhSevenBeethovenApiBundle:Board:all
+        _format: json
+    requirements:
+        _method: GET
+
+oh_seven_beethoven_api_board_get:
+    pattern: /board/{id}
+    defaults:
+        _controller: OhSevenBeethovenApiBundle:Board:get
+        _format: json
+    requirements:
+        _method: GET
+        id: "\d+"
+
+oh_seven_beethoven_api_board_create:
+    pattern: /board/create
+    defaults:
+        _controller: OhSevenBeethovenApiBundle:Board:create
+        _format: json
+    requirements:
+        _method: POST

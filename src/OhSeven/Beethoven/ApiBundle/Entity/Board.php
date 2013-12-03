@@ -3,11 +3,12 @@
 namespace OhSeven\Beethoven\ApiBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use OhSeven\Beethoven\ApiBundle\Model\BoardInterface;
 
 /**
  * Board
  */
-class Board
+class Board implements BoardInterface
 {
     /**
      * @var integer
