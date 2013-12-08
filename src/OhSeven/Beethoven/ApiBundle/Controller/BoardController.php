@@ -2,31 +2,20 @@
 
 namespace OhSeven\Beethoven\ApiBundle\Controller;
 
-use Symfony\Component\HttpFoundation\Request;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller as SymfonyController;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
-use FOS\RestBundle\Controller\FOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
+use FOS\RestBundle\Routing\ClassResourceInterface;
 
-use OhSeven\Beethoven\ApiBundle\Form\BoardType;
-
-class BoardController extends FOSRestController
+class BoardController extends SymfonyController implements ClassResourceInterface
 {
-
     /**
      * @Rest\View
      */
-    public function createAction ()
+    public function cgetAction ()
     {
-        return $this->createForm( new BoardType() );
-    }
-
-    /**
-     * @Rest\View
-     */
-    public function allAction ()
-    {
-        $boards = $this->getAll();
+        $boards = $this->get( 'oh_seven_beethoven_api.board.handler' )->getAll();
 
         return array(
             'boards' => $boards,
@@ -38,7 +27,10 @@ class BoardController extends FOSRestController
      */
     public function getAction ( $id )
     {
-        $board = $this->getOr404( $id );
+        if ( !( $board = $this->get( 'oh_seven_beethoven_api.board.handler' )->get( $id ) ) )
+        {
+            throw new NotFoundHttpException( "The resource '{$id}' was not found." );
+        }
 
         return array(
             'board' => $board,
@@ -46,27 +38,24 @@ class BoardController extends FOSRestController
     }
 
     /**
+     * @Rest\View
      */
-    private function getOr404 ( $id = null )
+    public function createAction ()
     {
-        if ( !( $board = $this->get( 'oh_seven_beethoven_api.board.handler' )->get( $id ) ) )
-        {
-            throw new NotFoundHttpException( "The resource '{$id}' was not found." );
-        }
+        $board = $this->get( 'oh_seven_beethoven_api.board.handler' )->create();
 
-        return $board;
+        return array(
+            'board' => $board,
+        );
     }
 
     /**
      * @Rest\View
      */
-    private function getAll ()
+    public function postAction ()
     {
-        $boards = $this->get( 'oh_seven_beethoven_api.board.handler' )->getAll();
-
-        return array(
-            'boards' => $boards,
-        );
+        $request = $this->getRequest();
+        $parameters = $request->request->all();
+        return $this->get( 'oh_seven_beethoven_api.board.handler' )->post( $parameters );
     }
-
 }

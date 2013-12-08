@@ -99,5 +99,8 @@ sensio_framework_extra:
     router:
         annotations: true
 fos_rest:
+    allowed_methods_listener: true
     view:
         view_response_listener: force
+    routing_loader:
+        default_format: json

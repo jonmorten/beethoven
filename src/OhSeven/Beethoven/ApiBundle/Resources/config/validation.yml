@@ -1,0 +1,8 @@
+OhSeven\Beethoven\ApiBundle\Entity\Board:
+    properties:
+        columns:
+            - NotBlank: ~
+        name:
+            - NotBlank: ~
+        filter:
+            - NotBlank: ~
