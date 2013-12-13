@@ -105,3 +105,6 @@ fos_rest:
     routing_loader:
         default_format: json
         include_format: false
+    format_listener:
+        rules:
+            - { path: '^/', priorities: [ 'json' ], fallback_format: json, prefer_extension: false }

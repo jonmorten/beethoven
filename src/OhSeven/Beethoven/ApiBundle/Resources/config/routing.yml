@@ -2,27 +2,13 @@ oh_seven_beethoven_api_default:
     pattern: /
     defaults:
         _controller: OhSevenBeethovenApiBundle:Default:index
-        _format: json
 
 
 # User
 
-oh_seven_beethoven_api_users_all:
-    pattern: /user
-    defaults:
-        _controller: OhSevenBeethovenApiBundle:User:all
-        _format: json
-    requirements:
-        _method: GET
-
-oh_seven_beethoven_api_user_get:
-    pattern: /user/{id}
-    defaults:
-        _controller: OhSevenBeethovenApiBundle:User:get
-        _format: json
-    requirements:
-        _method: GET
-        id: "\d+"
+beethoven_api_user:
+    resource: OhSeven\Beethoven\ApiBundle\Controller\UserController
+    type: rest
 
 
 # Category: Project
@@ -31,7 +17,6 @@ oh_seven_beethoven_api_category_project_all:
     pattern: /category/project
     defaults:
         _controller: OhSevenBeethovenApiBundle:Category:allProject
-        _format: json
     requirements:
         _method: GET
 
@@ -39,7 +24,6 @@ oh_seven_beethoven_api_category_project_get:
     pattern: /category/project/{id}
     defaults:
         _controller: OhSevenBeethovenApiBundle:Category:getProject
-        _format: json
     requirements:
         _method: GET
         id: "\d+"
@@ -51,7 +35,6 @@ oh_seven_beethoven_api_category_task_all:
     pattern: /category/task
     defaults:
         _controller: OhSevenBeethovenApiBundle:Category:allTask
-        _format: json
     requirements:
         _method: GET
 
@@ -59,7 +42,6 @@ oh_seven_beethoven_api_category_task_get:
     pattern: /category/task/{id}
     defaults:
         _controller: OhSevenBeethovenApiBundle:Category:getTask
-        _format: json
     requirements:
         _method: GET
         id: "\d+"
@@ -71,7 +53,6 @@ oh_seven_beethoven_api_label_project_all:
     pattern: /label/project
     defaults:
         _controller: OhSevenBeethovenApiBundle:Label:allProject
-        _format: json
     requirements:
         _method: GET
 
@@ -79,7 +60,6 @@ oh_seven_beethoven_api_label_project_get:
     pattern: /label/project/{id}
     defaults:
         _controller: OhSevenBeethovenApiBundle:Label:getProject
-        _format: json
     requirements:
         _method: GET
         id: "\d+"
@@ -91,7 +71,6 @@ oh_seven_beethoven_api_label_task_all:
     pattern: /label/task
     defaults:
         _controller: OhSevenBeethovenApiBundle:Label:allTask
-        _format: json
     requirements:
         _method: GET
 
@@ -99,7 +78,6 @@ oh_seven_beethoven_api_label_task_get:
     pattern: /label/task/{id}
     defaults:
         _controller: OhSevenBeethovenApiBundle:Label:getTask
-        _format: json
     requirements:
         _method: GET
         id: "\d+"
@@ -107,7 +85,6 @@ oh_seven_beethoven_api_label_task_get:
 
 # Board
 
-beethoven_api_boards:
-    #prefix: board
+beethoven_api_board:
     resource: OhSeven\Beethoven\ApiBundle\Controller\BoardController
     type: rest

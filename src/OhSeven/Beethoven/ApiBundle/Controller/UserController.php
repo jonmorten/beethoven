@@ -2,16 +2,18 @@
 
 namespace OhSeven\Beethoven\ApiBundle\Controller;
 
-use FOS\RestBundle\Controller\FOSRestController;
-use FOS\RestBundle\Controller\Annotations as Rest;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller as SymfonyController;
 
-class UserController extends FOSRestController
+use FOS\RestBundle\Controller\Annotations as Rest;
+use FOS\RestBundle\Routing\ClassResourceInterface;
+
+class UserController extends SymfonyController implements ClassResourceInterface
 {
 
     /**
      * @Rest\View
      */
-    public function allAction ()
+    public function cgetAction ()
     {
         $connection = $this->get( 'database_connection' );
         $users = $connection->fetchAll( "SELECT `id`, `first_name`, `last_name`, `email`, `last_login_on` FROM `acx_users` WHERE `company_id` = '6'" );

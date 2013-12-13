@@ -2,10 +2,12 @@
 
 namespace OhSeven\Beethoven\ApiBundle\Controller;
 
-use FOS\RestBundle\Controller\FOSRestController;
-use FOS\RestBundle\Controller\Annotations as Rest;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller as SymfonyController;
 
-class LabelController extends FOSRestController
+use FOS\RestBundle\Controller\Annotations as Rest;
+use FOS\RestBundle\Routing\ClassResourceInterface;
+
+class LabelController extends SymfonyController implements ClassResourceInterface
 {
 
     /**
