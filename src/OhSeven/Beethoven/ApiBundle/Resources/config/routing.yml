@@ -1,7 +1,7 @@
-oh_seven_beethoven_api_default:
-    pattern: /
+oh_seven_beethoven_api_test:
+    pattern: /test
     defaults:
-        _controller: OhSevenBeethovenApiBundle:Default:index
+        _controller: OhSevenBeethovenApiBundle:Test:index
 
 
 # User

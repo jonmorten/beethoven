@@ -5,7 +5,7 @@ namespace OhSeven\Beethoven\ApiBundle\Controller;
 use FOS\RestBundle\Controller\FOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
 
-class DefaultController extends FOSRestController
+class TestController extends FOSRestController
 {
 
     /**
