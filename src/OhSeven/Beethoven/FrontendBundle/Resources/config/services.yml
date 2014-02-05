@@ -1,7 +1,0 @@
-parameters:
-#    oh_seven_beethoven_frontend.example.class: OhSeven\Beethoven\FrontendBundle\Example
-
-services:
-#    oh_seven_beethoven_frontend.example:
-#        class: %oh_seven_beethoven_frontend.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]

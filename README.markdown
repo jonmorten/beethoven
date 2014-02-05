@@ -6,12 +6,41 @@ A task board for ActiveCollab.
 
 Clone the repo onto your LAMP (PHP) web server, for example to _/var/www_, so that its path becomes _/var/www/beethoven_.
 
-Follow Symfony2's [server configuration guide](http://symfony.com/doc/current/cookbook/configuration/web_server_configuration.html) or roll your own.
+Take a look at Laravel's [installation guide](http://laravel.com/docs/installation).
 
 Install [Composer](http://getcomposer.org) in _/var/www/beethoven_ and run `[sudo] php composer.phar install`.
 
-If you get errors regarding 'icu', install the required libraries with `[sudo] apt-get install php5-intl`.
+Create the file _.env.php_ inside _/var/www/beethoven_, using the following as a template:
 
-Make sure the values in _/var/www/beethoven/app/config/parameters.yml_ are correct.
-
-Run `[sudo] php app/console doctrine:schema:create --em=beethoven`.
+```php
+<?php
+return array(
+	'activecollab' => array(
+		'api_token' => 'TOKEN',
+	),
+	'database' = array(
+		'connections' => array(
+			'activecollab' => array(
+				'driver' => 'DRIVER',
+				'host' => 'HOST',
+				'database' => 'DATABASE',
+				'username' => 'USERNAME',
+				'password' => 'PASSWORD',
+				'charset' => 'CHARSET',
+				'collation' => 'COLLATION',
+				'prefix' => 'PREFIX',
+			),
+			'beethoven' => array(
+				'driver'=> 'DRIVER',
+				'host' => 'HOST',
+				'database' => 'DATABASE',
+				'username' => 'USERNAME',
+				'password' => 'PASSWORD',
+				'charset' => 'CHARSET',
+				'collation' => 'COLLATION',
+				'prefix' => 'PREFIX',
+			),
+		),
+	),
+);
+```

@@ -1,9 +1,0 @@
-parameters:
-    oh_seven_beethoven_api.board.handler.class: OhSeven\Beethoven\ApiBundle\Handler\BoardHandler
-    oh_seven_beethoven_api.board.class: OhSeven\Beethoven\ApiBundle\Entity\Board
-
-services:
-    oh_seven_beethoven_api.board.handler:
-        class: "%oh_seven_beethoven_api.board.handler.class%"
-        arguments:
-            [ "@doctrine.orm.beethoven_entity_manager", "@form.factory", "%oh_seven_beethoven_api.board.class%" ]
