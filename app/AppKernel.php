@@ -20,6 +20,7 @@ class AppKernel extends Kernel
             new FOS\RestBundle\FOSRestBundle(),
             new JMS\SerializerBundle\JMSSerializerBundle(),
             new OhSeven\Beethoven\ApiBundle\OhSevenBeethovenApiBundle(),
+            new OhSeven\Beethoven\FrontendBundle\OhSevenBeethovenFrontendBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

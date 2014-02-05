@@ -1,0 +1,5 @@
+oh_seven_beethoven_frontend_beethoven:
+    pattern: /
+    defaults:
+        _controller: OhSevenBeethovenFrontendBundle:Default:index
+        _format: html

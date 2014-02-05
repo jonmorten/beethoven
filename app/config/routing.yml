@@ -1,3 +1,7 @@
+oh_seven_beethoven_frontend:
+    resource: "@OhSevenBeethovenFrontendBundle/Resources/config/routing.yml"
+    prefix:   /
+
 oh_seven_beethoven_api:
     resource: "@OhSevenBeethovenApiBundle/Resources/config/routing.yml"
     prefix:   /

@@ -1,0 +1,80 @@
+nav ul,
+nav ol,
+nav li {
+	padding: 0;
+	margin: 0;
+}
+
+
+/**
+	Header
+*/
+.main-header {
+	background: #c2cbcc;
+	font-size: 0;/* Removes spacing from `display: inline-block` */
+	height: 40px;
+}
+.site-logo {
+	background: #7f8c8d;
+	display: inline-block;
+	height: 40px;
+	margin: 0;
+	overflow: hidden;
+	padding: 0 15px 0;
+}
+	.site-logo img {
+		position: relative;
+		left: 1px;
+		top: -5px;
+	}
+
+.main-header .main-menu {
+	display: inline-block;
+}
+
+.main-menu {
+	border-left: 2px dotted #fff;
+	font-size: 0;
+	vertical-align: top;
+}
+	.main-menu .trunk-0,
+	.main-menu .branch-0 {
+		display: inline-block;
+		height: 40px;
+	}
+	.main-menu .leaf {
+		color: #5c6566;
+		font-size: 16px;
+		font-weight: bold;
+		text-decoration: none;
+	}
+	.main-menu .leaf-0 {
+		border-right: 2px dotted #fff;
+		display: table-cell;
+		height: 40px;
+		padding: 0 25px;
+		transition: color 0.15s ease-in;
+		vertical-align: middle;
+	}
+	.main-menu .leaf-0:hover {
+		color: #fff;
+	}
+
+/**
+	Board
+*/
+.board {
+	min-height: 400px;
+	overflow-x: auto;
+	white-space: nowrap;
+}
+	.column {
+		display: inline-block;
+		margin-right: 10px;
+		vertical-align: top;
+		white-space: normal;
+		width: 200px;
+	}
+		.task {
+			margin-bottom: 15px;
+		}
