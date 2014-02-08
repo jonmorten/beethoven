@@ -11,9 +11,6 @@ define( [
 
 	Beethoven.navigate = function ( route, options ) {
 		options = options || {};
-		console.info( 'navigating to:' );
-		console.log( route );
-		console.log( options );
 		Backbone.history.navigate( route, options );
 	};
 	Beethoven.Router = Backbone.Router.extend( {
@@ -32,21 +29,20 @@ define( [
         },
 
 		board: function ( id, filters ) {
-			console.info( 'board' );
-			console.log( id );
+			console.info( 'board: ' + id );
 
 			if ( filters ) {
 				filters = _.object(
 					_.filter(
 						_.map(
 							filters.split( '/' ),
-							function( set ) {
-								var splitSet = set.split( ':' );
+							function( filterSet ) {
+								var splitSet = filterSet.split( ':' );
 								return ( splitSet.length > 1 ? [ splitSet[0], splitSet[1] ] : null );
 							}
 						),
-						function( set ) {
-							return !!set;
+						function( filterSet ) {
+							return !!filterSet;
 						}
 					)
 				);
@@ -74,8 +70,7 @@ define( [
 		},
 
 		editBoard: function ( id ) {
-			console.info( 'edit' );
-			console.log( id );
+			console.info( 'edit: ' + id );
 		},
 
 		newBoard: function () {
@@ -84,9 +79,7 @@ define( [
 			require( [
 				'views/pages/newboard'
 			], function( NewBoardView ) {
-				var newBoardView = new NewBoardView();
-
-				Beethoven.contentRegion.show( newBoardView );
+				Beethoven.contentRegion.show( new NewBoardView() );
 			} );
 		},
 
@@ -99,7 +92,6 @@ define( [
 
 	Beethoven.addInitializer( function( options ) {
 		var router = new Beethoven.Router();
-		//router.navigate( 'board/new' );
 
 		Beethoven.addRegions( {
 			headerRegion: options.headerRegionSelector,

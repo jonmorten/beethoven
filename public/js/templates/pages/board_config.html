@@ -1,0 +1,240 @@
+<div class="container">
+
+    <br>
+
+    <div class="row">
+        <div class="col-md-6">
+            <button class="btn btn-block btn-danger" data-hook-cancel>Cancel</button>
+        </div>
+        <div class="col-md-6">
+            <button class="btn btn-block btn-success" data-hook-save>Save</button>
+        </div>
+    </div>
+
+    <br>
+    <br>
+
+    <div class="row">
+        <div class="col-md-6">
+
+            <div class="form-group">
+                <h2>
+                    <label for="name">Name</label>
+                </h2>
+                <input type="text" class="form-control" id="name" placeholder="Name">
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+
+            <h2>Filters</h2>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <select
+                        name="task_filter_operation"
+                        class="form-control"
+                    >
+                        <option value="0">And</option>
+                        <option value="1">Or</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <select
+                        name="task_filter_boolean"
+                        class="form-control"
+                    >
+                        <option value="0">include</option>
+                        <option value="1">exclude</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <select
+                        name="task_filter_type"
+                        class="form-control"
+                        data-task-filter-select
+                    >
+                        <option value="projects">project</option>
+                        <option value="project_labels">project label</option>
+                        <option value="users">assignee</option>
+                    </select>
+                </div>
+            </div>
+
+            <br>
+
+            <div class="view-is-loading view-is-loading-form-control">
+                <div
+                    data-task-filter="projects"
+                    data-chosen-select="projects"
+                ></div>
+                <div
+                    data-task-filter="project_labels"
+                    data-chosen-select="project_labels"
+                ></div>
+                <div
+                    data-task-filter="users"
+                    data-chosen-select="users"
+                ></div>
+            </div>
+
+            <br>
+            <br>
+
+            <button class="btn btn-block btn-primary">Add filter</button>
+
+            <br>
+            <br>
+
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <span class="label label-danger">Exclude</span>
+                    &nbsp;
+                    Cras justo odio
+                    <span class="pull-right">
+                        <span class="glyphicon glyphicon-remove text-danger"></span>
+                        &nbsp;
+                        <span class="glyphicon glyphicon-pencil text-info"></span>
+                    </span>
+                </li>
+                <li class="list-group-item">
+                    <span class="label label-success">Include</span>
+                    &nbsp;
+                    Dapibus ac facilisis in
+                    <span class="pull-right">
+                        <span class="glyphicon glyphicon-remove text-danger"></span>
+                        &nbsp;
+                        <span class="glyphicon glyphicon-pencil text-info"></span>
+                    </span>
+                </li>
+                <li class="list-group-item">
+                    <span class="label label-danger">Exclude</span>
+                    &nbsp;
+                    Morbi leo risus
+                    <span class="pull-right">
+                        <span class="glyphicon glyphicon-remove text-danger"></span>
+                        &nbsp;
+                        <span class="glyphicon glyphicon-pencil text-info"></span>
+                    </span>
+                </li>
+                <li class="list-group-item">
+                    <span class="label label-danger">Exclude</span>
+                    &nbsp;
+                    Porta ac consectetur ac
+                    <span class="pull-right">
+                        <span class="glyphicon glyphicon-remove text-danger"></span>
+                        &nbsp;
+                        <span class="glyphicon glyphicon-pencil text-info"></span>
+                    </span>
+                </li>
+                <li class="list-group-item">
+                    <span class="label label-success">Include</span>
+                    &nbsp;
+                    Vestibulum at eros
+                    <span class="pull-right">
+                        <span class="glyphicon glyphicon-remove text-danger"></span>
+                        &nbsp;
+                        <span class="glyphicon glyphicon-pencil text-info"></span>
+                    </span>
+                </li>
+            </ul>
+
+        </div>
+        <div class="col-md-6">
+
+            <h2>Columns</h2>
+
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="name" placeholder="Name">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div
+                        class="view-is-loading view-is-loading-form-control"
+                        data-color-select
+                    ></div>
+                </div>
+            </div>
+
+            <div class="view-is-loading view-is-loading-form-control">
+                <div
+                    class="view-is-loading view-is-loading-form-control"
+                    data-chosen-select="labels"
+                ></div>
+            </div>
+
+            <br>
+            <br>
+
+            <button class="btn btn-block btn-primary">Add column</button>
+
+            <br>
+            <br>
+
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <span class="label label-danger">New</span>
+                    &nbsp;
+                    <span class="pull-right">
+                        <span class="glyphicon glyphicon-remove text-danger"></span>
+                        &nbsp;
+                        <span class="glyphicon glyphicon-pencil text-info"></span>
+                        &nbsp;
+                        <span class="glyphicon glyphicon-resize-vertical"></span>
+                    </span>
+                </li>
+                <li class="list-group-item">
+                    <span class="label label-warning">Todo</span>
+                    &nbsp;
+                    <span class="pull-right">
+                        <span class="glyphicon glyphicon-remove text-danger"></span>
+                        &nbsp;
+                        <span class="glyphicon glyphicon-pencil text-info"></span>
+                        &nbsp;
+                        <span class="glyphicon glyphicon-resize-vertical"></span>
+                    </span>
+                </li>
+                <li class="list-group-item">
+                    <span class="label label-default">WIP</span>
+                    &nbsp;
+                    <span class="pull-right">
+                        <span class="glyphicon glyphicon-remove text-danger"></span>
+                        &nbsp;
+                        <span class="glyphicon glyphicon-pencil text-info"></span>
+                        &nbsp;
+                        <span class="glyphicon glyphicon-resize-vertical"></span>
+                    </span>
+                </li>
+                <li class="list-group-item">
+                    <span class="label label-success">Dev. test</span>
+                    &nbsp;
+                    <span class="pull-right">
+                        <span class="glyphicon glyphicon-remove text-danger"></span>
+                        &nbsp;
+                        <span class="glyphicon glyphicon-pencil text-info"></span>
+                        &nbsp;
+                        <span class="glyphicon glyphicon-resize-vertical"></span>
+                    </span>
+                </li>
+                <li class="list-group-item">
+                    <span class="label label-primary">P.O. test</span>
+                    &nbsp;
+                    <span class="pull-right">
+                        <span class="glyphicon glyphicon-remove text-danger"></span>
+                        &nbsp;
+                        <span class="glyphicon glyphicon-pencil text-info"></span>
+                        &nbsp;
+                        <span class="glyphicon glyphicon-resize-vertical"></span>
+                    </span>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+
+</div>

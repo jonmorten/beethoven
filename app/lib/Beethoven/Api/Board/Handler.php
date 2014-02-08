@@ -1,50 +1,134 @@
 <?php
 
 namespace Beethoven\Api\Board;
+use DB as DB;
 
 class Handler
 {
 
+
+	const QUERY_TTL = 10;
+
+
 	public function __construct ()
 	{}
+
+
+	private function acDb ()
+	{
+		return DB::connection( 'activecollab' );
+	}
+
 
 	public function getBoard ( $id )
 	{
 		return array( 'test' );
 	}
+
+
 	public function newBoard ()
 	{
-		$test = \DB::connection( 'activecollab' )->select(
-			"SELECT `id`, `name`, `type` FROM `acx_categories` WHERE `type`='ProjectCategory'"
+		$result = array();
+
+		//	Task filters
+
+		$projects = $this->acDb()
+			->table( 'acx_projects' )
+			->select( 'id', 'name' )
+			->orderBy( 'name', 'ASC' )
+			->remember( self::QUERY_TTL )->get();
+
+		$users = $this->acDb()
+			->table( 'acx_users' )
+			->select(
+				'id',
+				$this->acDb()->raw( 'CONCAT(`first_name`, " ", `last_name`) as `name`' )
+			)
+			->where( 'company_id', '6' )
+			->orderBy( 'name', 'ASC' )
+			->remember( self::QUERY_TTL )->get();
+
+		$projectCategories = $this->acDb()
+			->table( 'acx_categories' )
+			->select( 'id', 'name' )
+			->where( 'type', 'ProjectCategory' )
+			->orderBy( 'name', 'ASC' )
+			->remember( self::QUERY_TTL )->get();
+
+		$projectLabels = $this->acDb()
+			->table( 'acx_labels' )
+			->select( 'id', 'name' )
+			->where( 'type', 'ProjectLabel' )
+			->orderBy( 'name', 'ASC' )
+			->remember( self::QUERY_TTL )->get();
+
+		$taskCategories = $this->acDb()
+			->table( 'acx_categories' )
+			->select( 'id', 'name' )
+			->where( 'type', 'TaskCategory' )
+			->groupBy( 'name' )
+			->orderBy( 'name', 'ASC' )
+			->remember( self::QUERY_TTL )->get();
+
+		$result['task_filters'] = array(
+			'projects' => $projects,
+			'users' => $users,
+			'project_categories' => $projectCategories,
+			'project_labels' => $projectLabels,
+			'task_categories' => $taskCategories,
 		);
-		return array( $test );
+
+		//	Column options
+
+		$colors = array_map(
+			function ( $color )
+			{
+				return array(
+					'id' => $color,
+					'name' => ucfirst( $color ),
+				);
+			},
+			array(
+				'black',
+				'blue',
+				'brown',
+				'cyan',
+				'gray',
+				'green',
+				'magenta',
+				'maroon',
+				'navy',
+				'orange',
+				'purple',
+				'red',
+				'teal',
+				'violet',
+				'yellow',
+			)
+		);
+		$taskLabels = $this->acDb()
+			->table( 'acx_labels' )
+			->select( 'id', 'name' )
+			->where( 'type', 'AssignmentLabel' )
+			->orderBy( 'name', 'ASC' )
+			->remember( self::QUERY_TTL )->get();
+
+		$result['column_options'] = array(
+			'colors' => $colors,
+			'labels' => $taskLabels,
+		);
+
+		return array(
+			'status' => '@todo',
+			'result' => $result,
+		);
 	}
+
+
 	public function patchBoard ( $id )
 	{
 		return array( 'test' );
 	}
 
-	// categories
-	// $connection->fetchAll( "SELECT `id`, `name`, `type` FROM `acx_categories` WHERE `type`='ProjectCategory'" );
-	// $connection->fetchAll( "SELECT `id`, `name`, `type` FROM `acx_categories` WHERE `type`='ProjectCategory' AND `id`='{$id}'" );
-	// $connection->fetchAll( "SELECT `id`, `name`, `type` FROM `acx_categories` WHERE `type`='TaskCategory'" );
-	// $connection->fetchAll( "SELECT `id`, `name`, `type` FROM `acx_categories` WHERE `type`='TaskCategory' AND `id`='{$id}'" );
-
-
-	// labels
-	// $connection->fetchAll( "SELECT `id`, `name`, `type`, `raw_additional_properties` FROM `acx_labels` WHERE `type`='ProjectLabel'" );
-	// $connection->fetchAll( "SELECT `id`, `name`, `type`, `raw_additional_properties` FROM `acx_labels` WHERE `type`='ProjectLabel' AND `id`='{$id}'" );
-	// $connection->fetchAll( "SELECT `id`, `name`, `type`, `raw_additional_properties` FROM `acx_labels` WHERE `type`='AssignmentLabel'" );
-	// $connection->fetchAll( "SELECT `id`, `name`, `type`, `raw_additional_properties` FROM `acx_labels` WHERE `type`='AssignmentLabel' AND `id`='{$id}'" );
-
-	// foreach ( $label as &$_label )
-	// {
-	//     $_label['raw_additional_properties'] = unserialize( $_label['raw_additional_properties'] );
-	// }
-
-
-	// users
-	// $connection->fetchAll( "SELECT `id`, `first_name`, `last_name`, `email`, `last_login_on` FROM `acx_users` WHERE `company_id` = '6'" );
-	// $connection->fetchAll( "SELECT `id`, `first_name`, `last_name`, `email` FROM `acx_users` WHERE `id`='{$id}'" );
 
 }

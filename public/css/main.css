@@ -5,6 +5,14 @@ nav li {
 	margin: 0;
 }
 
+.view-is-loading {
+	min-height: 24px;
+	background: url(../images/icons/loader24.gif) no-repeat center center;
+}
+.view-is-loading-form-control {
+	min-height: 34px;
+}
+
 
 /**
 	Header
@@ -78,3 +86,57 @@ nav li {
 		.task {
 			margin-bottom: 15px;
 		}
+
+
+/**
+	Board config form
+*/
+.color-select-preview {
+	border: 0 none;
+}
+
+.color-select-preview-black {
+	background-color: #222;
+}
+.color-select-preview-blue {
+	background-color: #3498db;
+}
+.color-select-preview-brown {
+	background-color: #804000;
+}
+.color-select-preview-cyan {
+	background-color: #26d9d2;
+}
+.color-select-preview-gray {
+	background-color: #95a5a6;
+}
+.color-select-preview-green {
+	background-color: #3fc380;
+}
+.color-select-preview-magenta {
+	background-color: #ff00ff;
+}
+.color-select-preview-maroon {
+	background-color: #c0392b;
+}
+.color-select-preview-navy {
+	background-color: #1f3a93;
+}
+.color-select-preview-orange {
+	background-color: #e87e04;
+}
+.color-select-preview-purple {
+	background-color: #bf55ec;
+}
+.color-select-preview-red {
+	background-color: #f22613;
+}
+.color-select-preview-teal {
+	background-color: #1ba39c;
+}
+.color-select-preview-violet {
+	background-color: #913d88;
+}
+.color-select-preview-yellow {
+	background-color: #f7ca18;
+}
